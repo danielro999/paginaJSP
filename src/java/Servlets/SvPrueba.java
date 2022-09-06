@@ -2,15 +2,15 @@
 package Servlets;
 
 import java.io.IOException;
-//import java.util.ArrayList;
-//import java.util.List;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import logica.Controladora;
-//import javax.servlet.http.HttpSession;
+
 import logica.Persona;
 
 @WebServlet(name = "SvPrueba", urlPatterns = {"/SvPrueba"})
@@ -26,16 +26,15 @@ public class SvPrueba extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        
-//        List<Persona> listaPersonas = new ArrayList<> ();
-//        listaPersonas.add(new Persona(1,"27656456","alberto","fernandez","45151815"));
-//        listaPersonas.add(new Persona(2, "131515", "juan", "gaomez", "321323423"));
-//       
-//        
-////        HttpSession misession = request.getSession();
-//        misession.setAttribute("listaPersonas", listaPersonas);
-//
-//        response.sendRedirect("verPersonas.jsp");
+        
+        List <Persona> listaPersonas = control.traerPersonas();
+        
+        HttpSession miSession = request.getSession();
+        miSession.setAttribute("listaPersonas", listaPersonas);
+        
+        response.sendRedirect("verPersonas.jsp");
+       
+
     }
 
     @Override
@@ -46,11 +45,10 @@ public class SvPrueba extends HttpServlet {
         String apellido = request.getParameter("apellido");
         String telefono = request.getParameter("telefono");
         
-       Persona per = new Persona(0, dni, nombre, apellido, telefono);
-        control.crearPersona(per);
-                
-        System.out.println(per.getApellido());
-
+        Persona per = new Persona(0, dni, nombre, apellido, telefono);
+        control.crearPersona(per);    
+        
+        response.sendRedirect("index.jsp");
 
     }
 

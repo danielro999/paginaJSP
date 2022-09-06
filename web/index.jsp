@@ -21,5 +21,13 @@
         <form action="SvPrueba" method="GET">
             <button type="submit" > mostrar clientes</button>
         </form>
+        
+        <h1>Eliminar personas</h1>
+        <p>ingre el id de la persona a eliminar</p>
+        <form action="SvEliminar" method="POST">
+            <p><label>Id:</label><input type="text" name="id_eliminar"></p>
+            <button type="submit" >Eliminar</button>            
+        </form>
+        
     </body>
 </html>
