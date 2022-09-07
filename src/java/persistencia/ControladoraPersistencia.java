@@ -43,5 +43,8 @@ public class ControladoraPersistencia {
        return persJPA.findPersonaEntities();   
    } 
    
+   public Persona traerPersona (int id){
+       return persJPA.findPersona( id);
+   }
     
 }

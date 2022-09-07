@@ -33,13 +33,12 @@ public class SvPrueba extends HttpServlet {
         miSession.setAttribute("listaPersonas", listaPersonas);
         
         response.sendRedirect("verPersonas.jsp");
-       
-
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         String dni = request.getParameter("dni");
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");

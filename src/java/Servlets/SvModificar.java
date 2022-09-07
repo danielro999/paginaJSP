@@ -29,8 +29,10 @@ public class SvModificar extends HttpServlet {
         
         int id = Integer.parseInt(request.getParameter("id_modificar"));
         
+        Persona per = control.traerPersona(id);
+        
         HttpSession miSession2 = request.getSession();
-        miSession2.setAttribute("id_modificar", id);
+        miSession2.setAttribute("persona", per);
        
         response.sendRedirect("modificar.jsp");
     }
@@ -45,16 +47,15 @@ public class SvModificar extends HttpServlet {
         String apellido = request.getParameter("apellido");
         String telefono = request.getParameter("telefono");
         
-        int id = (int) request.getSession().getAttribute("id_modificar");
+        Persona perMod = (Persona) request.getSession().getAttribute("persona");
        
-        Persona per = new Persona(id, dni, nombre, apellido, telefono);
+        Persona per = new Persona(perMod.getId(), dni, nombre, apellido, telefono);
         
         control.modificarPersona(per);
         response.sendRedirect("index.jsp");
              
     }
 
-  
     @Override
     public String getServletInfo() {
         return "Short description";

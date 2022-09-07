@@ -30,5 +30,7 @@ public class Controladora {
     public List<Persona> traerPersonas (){
         return controlPersis.traerPersonas();
     }
-    
+     public Persona traerPersona(int id){
+         return controlPersis.traerPersona(id);
+     } 
 }
