@@ -15,6 +15,13 @@ public class ControladoraPersistencia {
        persJPA.create(per);
    }
    
+   public void modificarPersona (Persona per) {
+       try {
+           persJPA.edit(per);
+       } catch (Exception ex) {
+           Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+       }
+   }
    
    public void eliminarPersona (int id){
        try {

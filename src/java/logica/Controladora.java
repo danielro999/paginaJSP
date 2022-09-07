@@ -15,6 +15,10 @@ public class Controladora {
         controlPersis.crearPersona(per);
     }
     
+    public void modificarPersona(Persona per){
+        controlPersis.modificarPersona(per);
+    }
+    
     public void eliminarPersnona (int id){
         controlPersis.eliminarPersona(id);    
     }

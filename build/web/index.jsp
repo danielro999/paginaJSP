@@ -23,11 +23,22 @@
         </form>
         
         <h1>Eliminar personas</h1>
-        <p>ingre el id de la persona a eliminar</p>
+        <p>ingrese el id de la persona a eliminar</p>
         <form action="SvEliminar" method="POST">
             <p><label>Id:</label><input type="text" name="id_eliminar"></p>
             <button type="submit" >Eliminar</button>            
         </form>
         
+        <h1>Editar personas</h1>
+        <p>ingrese el id de la persona a editar</p>
+        <form action="SvModificar" method="GET">
+            <p><label>Id:</label><input type="text" name="id_modificar"></p>
+            <button type="submit" >Editar</button>            
+        </form>
     </body>
 </html>
+<!--       - Editar enviar a nueva pagina
+           - Crear nuevo servlet SvModificar(POST)
+           - Crae metodo editar en logica.controladora, persistancia.controladoraPeristencia.
+           - Pasar por el motodo edit la persona completa a modificar
+-->
