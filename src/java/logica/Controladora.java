@@ -31,4 +31,8 @@ public class Controladora {
         return controlPersis.traerPersonas();
     }
     
+    public Persona traerPersona (int id){
+        return controlPersis.traerPersona(id);
+    }
+    
 }

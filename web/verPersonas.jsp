@@ -15,11 +15,14 @@
         <%
             List<Persona> listapersonas = (List) request.getSession().getAttribute("listaPersonas");
             for (Persona per : listapersonas){
-        %>  <h2>Personas</h2>
+        %>  
+            <h2>Personas</h2>
             <p>Nombre y apellido: <%= per.getNombre() + " "+  per.getApellido()  %></p>
             <p>id: <%= per.getId()  %></p>
             <p>telefono: <%= per.getTelefono() %> </p>
             <p>----------------------------------------------------------</p>
-           <% } %>
+     
+        <% } %>
+        
     </body>
 </html>

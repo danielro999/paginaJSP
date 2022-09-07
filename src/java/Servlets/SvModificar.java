@@ -27,10 +27,18 @@ public class SvModificar extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         
+        
+        // id traido de index.jsp en el campo eliminar
         int id = Integer.parseInt(request.getParameter("id_modificar"));
         
+        //id guardado en la sesion para llevar id a sesion de modificar.jsp
         HttpSession miSession2 = request.getSession();
         miSession2.setAttribute("id_modificar", id);
+              
+        //con el id traigo el objeto persona que voy a modificar para llevarlo a la session
+        // de modificar.jsp y mostrar con get() sus datos en los inputs
+        Persona pers = control.traerPersona(id);
+        miSession2.setAttribute("persona", pers);
        
         response.sendRedirect("modificar.jsp");
     }
@@ -45,8 +53,8 @@ public class SvModificar extends HttpServlet {
         String apellido = request.getParameter("apellido");
         String telefono = request.getParameter("telefono");
         
-        int id = (int) request.getSession().getAttribute("id_modificar");
-       
+        int id = (int) request.getSession().getAttribute("id_modificar");    
+        
         Persona per = new Persona(id, dni, nombre, apellido, telefono);
         
         control.modificarPersona(per);
